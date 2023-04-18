@@ -1,0 +1,5 @@
+The central idea of our project is to take a look at how Wikipedia articles are interlinked, specifically starting
+from the Cold War, and then scraping all the articles that are linked to, from the article about the Cold War.
+We want to discover in which ways the articles belong to communities, and how the language used in the articles differ,
+depending on the specific subject. If we have time, we want to extend this to also look at the german Wikipedia,
+in order to see if there is any bias in the way the events of the Cold War is portrayed in English compared to German.

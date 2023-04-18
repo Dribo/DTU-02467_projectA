@@ -1,0 +1,3 @@
+The idea is to tie the network and the text together, by picking a text from an article that has a high degree in the
+network, or by choosing high degree articles from different communities, and see how the language differs between
+communities in the network.
