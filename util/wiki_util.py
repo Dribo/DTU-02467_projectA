@@ -1,6 +1,6 @@
 
-def hyperlink_cleanup(str_link):
-    link_prefix = "https://en.wikipedia.org"
+def hyperlink_cleanup(str_link, language):
+    link_prefix = f"https://{language}.wikipedia.org"
     if "/wiki/" in str_link:
         out = link_prefix + str_link
         if '#' in out:
