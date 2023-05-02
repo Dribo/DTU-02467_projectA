@@ -1,8 +1,13 @@
+import nltk
 import numpy as np
 import regex as re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from typing import Set, List, Dict, AnyStr
+
+nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('omw-1.4')
 
 
 def preprocess_text(document: AnyStr) -> AnyStr:
