@@ -55,9 +55,17 @@ def get_idf(unique_terms: Set, documents: List[List]) -> Dict:
 
 
 def get_tfidf(unique_terms: Set, tokens: List, documents: List[List]) -> Dict:
-    tf_dict = get_tf(unique_terms, tokens)
-    idf_dict = get_idf(unique_terms, documents)
     tfidf_dict = {}
-    for term in unique_terms:
-        tfidf_dict[term] = {"TF": tf_dict[term], "IDF": idf_dict[term], "TF_IDF": tf_dict[term]*idf_dict[term]}
+    n_terms = len(unique_terms)
+    n_docs = len(documents)
+    for term in tqdm(unique_terms):
+        tf_count = np.count_nonzero(np.array(tokens) == term)
+        tf_value = tf_count/n_terms
+        idf_count = 0
+        for i in range(n_docs):
+            if term in documents[i]:
+                idf_count += 1
+        idf_value = n_docs/(idf_count + 1)
+        idf_value = np.log(idf_value)
+        tfidf_dict[term] = {"TF": tf_value, "IDF": idf_value, "TF_IDF": tf_value*idf_value}
     return tfidf_dict
