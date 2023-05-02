@@ -1,5 +1,27 @@
 import numpy as np
-from typing import Set, List, Dict
+import regex as re
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from typing import Set, List, Dict, AnyStr
+
+
+def preprocess_text(document: AnyStr) -> AnyStr:
+    document = re.sub('[^a-zA-Z]', ' ', document)
+    document = document.lower()
+    return document
+
+
+def tokenize(document: AnyStr, preprocess=True) -> List:
+    wl = WordNetLemmatizer()
+    if preprocess:
+        document = preprocess_text(document)
+    document = document.split()
+    document = [wl.lemmatize(word) for word in document if word not in set(stopwords.words('english'))]
+    return document
+
+
+def get_unique_terms(corpus: List) -> Set:
+    return set(corpus)
 
 
 def get_tf(unique_terms: Set, tokens: List) -> Dict:
@@ -25,7 +47,7 @@ def get_idf(unique_terms: Set, documents: List[List]) -> Dict:
     return idf_dict
 
 
-def get_tfidf(unique_terms: Set, tokens: List, documents: List[List]) -> Dict[Dict]:
+def get_tfidf(unique_terms: Set, tokens: List, documents: List[List]) -> Dict:
     tf_dict = get_tf(unique_terms, tokens)
     idf_dict = get_idf(unique_terms, documents)
     tfidf_dict = {}
