@@ -4,6 +4,7 @@ import regex as re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from typing import Set, List, Dict, AnyStr
+from tqdm import tqdm
 
 nltk.download('wordnet')
 nltk.download('stopwords')
@@ -30,9 +31,10 @@ def get_unique_terms(corpus: List) -> Set:
 
 
 def get_tf(unique_terms: Set, tokens: List) -> Dict:
+    tokens = np.array(tokens)
     tf_dict = {}
     n_terms = len(unique_terms)
-    for term in unique_terms:
+    for term in tqdm(unique_terms):
         count = np.count_nonzero(tokens == term)
         tf = count/n_terms
         tf_dict[term] = tf

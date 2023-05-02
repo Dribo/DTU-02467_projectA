@@ -68,7 +68,9 @@ def get_edge_list(df_wiki, directed=False):
 
 def generate_graph_with_node_attributes(graph, df_wiki):
     for node in graph.nodes:
-        graph.nodes[node]['Type'] = df_wiki[df_wiki.index == node].TYPE.tolist()[0]
+        graph.nodes[node]['TYPE'] = df_wiki.TYPE[node]
+        graph.nodes[node]['TOKENS'] = df_wiki.TOKENS[node]
+        graph.nodes[node]['UNIQUE_TOKENS'] = df_wiki.UNIQUE_TOKENS[node]
     return graph
 
 def get_subgraph(graph, attribute, values):
