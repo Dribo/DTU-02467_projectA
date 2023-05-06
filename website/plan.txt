@@ -1,0 +1,38 @@
+Subjects that website should cover:
+    - What is the dataset?
+    - Why is it interesting?
+    - How was it obtained?
+    - What do we want to find out?
+
+    - Relation between text and graph
+    - Description of graph:
+        - What are links?
+        - What are the attributes?
+        - Directed/Undirected
+        - Subsets created and why
+        - Image of graph and sub-graphs?
+    - Analysis of graph:
+        - Assortativity
+        - In/Out-degree
+        - Distribution of degrees
+        - Modularity
+        - Communities
+            - Generation method
+            - What does communities represent?
+            - Significant communities
+            - Modularity in communities
+    - Analysis of text:
+        - TF-IDF
+        - Top terms in the entire graph
+        - Top terms in communities
+        - Comparison of top terms in communities
+        - Sentiment analysis?
+        - Word clouds for communities
+        - Significant differences in the word clouds?
+    - Conclusion:
+        - Did we find what we expected?
+        - What could be expanded on or done differently?
+    - Further work:
+        - Other languages
+        - Scraping more than one layer of connections
+        - ???
